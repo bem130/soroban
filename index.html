@@ -5,38 +5,71 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <div class="soroban">
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"><span><span></span><span></span></span></button>
-                <hr>
-                <button class="bead ichidama"><span><span></span><span></span></span></button>
-                <button class="bead ichidama"><span><span></span><span></span></span></button>
-                <button class="bead ichidama"><span><span></span><span></span></span></button>
-                <button class="bead ichidama"><span><span></span><span></span></span></button>
-            </div>
+        <div id="main">
+            <div id="soroban" class="soroban"></div>
         </div>
     </body>
 </html>
 <script>
+function generate(n) {
+    let cBeads = (type)=>{
+        let button = document.createElement("button");
+        button.classList.add("bead");
+        button.classList.add(type);
+        let span1 = document.createElement("span");
+        let span2 = document.createElement("span");
+        let span3 = document.createElement("span");
+        span1.appendChild(span2);
+        span1.appendChild(span3);
+        button.appendChild(span1);
+        return button;
+    }
+    let soroban = document.getElementById("soroban");
+    for (let i=0;i<n;i++) {
+        let rod = document.createElement("div");
+        rod.classList.add("rod");
+        rod.dataset.ichidama = "0";
+        rod.dataset.godama = "0";
+        rod.appendChild(cBeads("godama"));
+        let hr = document.createElement("hr");
+        rod.appendChild(hr);
+        for (let j=0;j<4;j++) {
+            rod.appendChild(cBeads("ichidama"));
+        }
+        soroban.appendChild(rod);
+    }
+}
+generate(23);
 document.querySelectorAll(".bead.godama").forEach((x)=>{
-    x.onclick = (e)=>{
+    x.ontouchstart = (e)=>{
         if (e.target.parentNode.dataset.godama=="0") { e.target.parentNode.dataset.godama = "1"; }
         else {e.target.parentNode.dataset.godama = "0";}
     }
+    x.onmousedown = x.ontouchstart;
 })
 document.querySelectorAll(".bead.ichidama").forEach((x)=>{
-    x.onclick = (e)=>{
+    x.ontouchstart = (e)=>{
         let i = Array.from(e.target.parentNode.children).indexOf(e.target)-1;
         if (e.target.parentNode.dataset.ichidama>=i) {i-=1;}
         e.target.parentNode.dataset.ichidama = i;
     }
+    x.onmousedown = x.ontouchstart;
 })
 </script>
 <style>
+    #main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 100%;
+        overflow: scroll;
+    }
     .soroban {
         display: flex;
-        border: 10px solid black;
+        border: 40px solid black;
         width: fit-content;
+        touch-action: manipulation;
     }
     .rod {
         background-color: rgb(74, 86, 116);
@@ -68,7 +101,7 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
     .rod>hr {
         margin: 0px;
         height: 15px;
-        background-color: black;
+        background-color: rgb(255, 255, 255);
         border: 0;
     }
     .bead {
