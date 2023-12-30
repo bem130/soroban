@@ -3,6 +3,11 @@
     <head>
         <title>Soroban</title>
         <meta charset="utf-8">
+        <meta name="application-name" content="Soroban">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta property="og:description" content="ブラウザで動く算盤">
+        <meta property="description" content="ブラウザで動く算盤">
     </head>
     <body>
         <div id="main">
@@ -64,6 +69,7 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
         transform: translate(-50%,-50%);
         max-width: 100%;
         overflow: scroll;
+        padding-bottom: 100px;
     }
     .soroban {
         display: flex;
