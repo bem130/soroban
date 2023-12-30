@@ -13,6 +13,7 @@
         <div id="main">
             <div id="soroban" class="soroban"></div>
         </div>
+        <button id="clearbutton">Clear</button>
     </body>
 </html>
 <script>
@@ -63,6 +64,12 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
 })
 document.querySelector("#soroban").ontouchmove = (e)=>{
     return false;
+}
+document.querySelector("#clearbutton").onclick = ()=>{
+    document.querySelectorAll("#soroban .rod").forEach((x)=>{
+        x.dataset.ichidama = "0";
+        x.dataset.godama = "0";
+    })
 }
 </script>
 <style>
@@ -149,5 +156,13 @@ document.querySelector("#soroban").ontouchmove = (e)=>{
             }
         }
         transition: margin 0.005s;
+    }
+
+    #clearbutton {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        width: 150px;
+        height: 30px;
     }
 </style>
