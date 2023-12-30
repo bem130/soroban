@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Soroban</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="soroban">
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+            <div class="rod" data-ichidama="0" data-godama="0">
+                <button class="bead godama"></button>
+                <hr>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+                <button class="bead ichidama"></button>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+document.querySelectorAll(".bead.godama").forEach((x)=>{
+    x.onclick = (e)=>{
+        if (e.target.parentNode.dataset.godama=="0") { e.target.parentNode.dataset.godama = "1"; }
+        else {e.target.parentNode.dataset.godama = "0";}
+    }
+})
+document.querySelectorAll(".bead.ichidama").forEach((x)=>{
+    x.onclick = (e)=>{
+        let i = Array.from(e.target.parentNode.children).indexOf(e.target)-1;
+        if (e.target.parentNode.dataset.ichidama>=i) {i-=1;}
+        e.target.parentNode.dataset.ichidama = i;
+    }
+})
+</script>
+<style>
+    .soroban {
+        display: flex;
+        border: 10px solid black;
+        width: fit-content;
+    }
+    .rod {
+        background-color: rgb(74, 86, 116);
+        width: min-content;
+        /* 5dama */
+        &[data-godama="0"] .bead:nth-child(1) {
+            margin-bottom: 80px;
+        }
+        &[data-godama="1"] .bead:nth-child(1) {
+            margin-top: 80px;
+        }
+        /* 1dama */
+        &[data-ichidama="0"] .bead:nth-child(3) {
+            margin-top: 80px;
+        }
+        &[data-ichidama="1"] .bead:nth-child(4) {
+            margin-top: 80px;
+        }
+        &[data-ichidama="2"] .bead:nth-child(5) {
+            margin-top: 80px;
+        }
+        &[data-ichidama="3"] .bead:nth-child(6) {
+            margin-top: 80px;
+        }
+        &[data-ichidama="4"] .bead:nth-child(6) {
+            margin-bottom: 80px;
+        }
+    }
+    .rod>hr {
+        margin: 0px;
+        height: 15px;
+        background-color: black;
+        border: 0;
+    }
+    .bead {
+        display: block;
+        outline: none;
+        border: 0;
+        background: rgb(255, 163, 5);
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 120px;
+        height: 80px;
+        clip-path: path('M60 0 L120 40 L60 80 L0 40Z');
+    }
+</style>
