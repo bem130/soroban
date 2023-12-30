@@ -7,76 +7,12 @@
     <body>
         <div class="soroban">
             <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
+                <button class="bead godama"><span><span></span><span></span></span></button>
                 <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-            </div>
-            <div class="rod" data-ichidama="0" data-godama="0">
-                <button class="bead godama"></button>
-                <hr>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
-                <button class="bead ichidama"></button>
+                <button class="bead ichidama"><span><span></span><span></span></span></button>
+                <button class="bead ichidama"><span><span></span><span></span></span></button>
+                <button class="bead ichidama"><span><span></span><span></span></span></button>
+                <button class="bead ichidama"><span><span></span><span></span></span></button>
             </div>
         </div>
     </body>
@@ -138,12 +74,28 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
     .bead {
         display: block;
         outline: none;
+        background: transparent;
         border: 0;
-        background: rgb(255, 163, 5);
         margin-left: 10px;
         margin-right: 10px;
+        padding: 0;
         width: 120px;
         height: 80px;
-        clip-path: path('M60 0 L120 40 L60 80 L0 40Z');
+        &>span {
+            height: 100%;
+            display: block;
+            clip-path: path('M60 -2 L120 40 L60 82 L0 40Z');
+            pointer-events: none;
+            &>span:nth-child(1) {
+                height: 50%;
+                display: block;
+                background: linear-gradient(to left,rgb(143, 71, 0),rgb(255, 163, 5));
+            }
+            &>span:nth-child(2) {
+                height: 50%;
+                display: block;
+                background: linear-gradient(to left,rgb(255, 163, 5),rgb(113, 64, 14));
+            }
+        }
     }
 </style>
