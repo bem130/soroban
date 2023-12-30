@@ -43,6 +43,7 @@ function generate(n) {
         }
         soroban.appendChild(rod);
     }
+    window.setTimeout(()=>{document.querySelector("#main").scrollTo(document.getElementById("soroban").scrollWidth,0);},0)
 }
 generate(23);
 document.querySelectorAll(".bead.godama").forEach((x)=>{
