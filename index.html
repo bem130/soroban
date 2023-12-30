@@ -103,7 +103,12 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
         margin: 0px;
         height: 15px;
         background-color: rgb(255, 255, 255);
-        border: 0;
+        border: 1px solid black;
+        border-left: 0;
+        border-right: 0;
+    }
+    .rod:nth-child(3n)>hr {
+        background: radial-gradient(circle 5px,black 90%,white);
     }
     .bead {
         display: block;
@@ -131,6 +136,6 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
                 background: linear-gradient(to left,rgb(255, 163, 5),rgb(113, 64, 14));
             }
         }
-        transition: margin 0.05s;
+        transition: margin 0.005s;
     }
 </style>
