@@ -73,6 +73,7 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
     }
     .rod {
         background-color: rgb(74, 86, 116);
+        background: linear-gradient(to right,rgb(74, 86, 116) 46%,rgb(163, 137, 98) 46%,rgb(232, 222, 163) 48%,rgb(212, 119, 57) 54%,rgb(74, 86, 116) 54%);
         width: min-content;
         /* 5dama */
         &[data-godama="0"] .bead:nth-child(1) {
@@ -117,7 +118,7 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
         &>span {
             height: 100%;
             display: block;
-            clip-path: path('M60 -2 L120 40 L60 82 L0 40Z');
+            clip-path: path('M60 -5 L120 40 L60 85 L0 40Z');
             pointer-events: none;
             &>span:nth-child(1) {
                 height: 50%;
