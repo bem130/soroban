@@ -60,6 +60,9 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
     }
     x.onmousedown = x.ontouchstart;
 })
+document.querySelector("#soroban").ontouchmove = (e)=>{
+    return false;
+}
 </script>
 <style>
     #main {
@@ -70,6 +73,7 @@ document.querySelectorAll(".bead.ichidama").forEach((x)=>{
         max-width: 100%;
         overflow: scroll;
         padding-bottom: 100px;
+        padding-top: 100px;
     }
     .soroban {
         display: flex;
